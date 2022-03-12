@@ -32,15 +32,41 @@
 
   </div> -->
   <a [routerLink]="['/launchdetail',this.launchInfo.slug]">
-  <div class="bg-image p-3 rounded mb-2 text-white" [style.background-image]="'url('+this.launchInfo?.image+')'">
+  <!-- <div class="bg-image p-3 rounded mb-2 text-white" [style.background-image]="'url('+this.launchInfo?.image+')'">
   <p>
     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus praesentium
     labore accusamus sequi, voluptate debitis tenetur in deleniti possimus modi voluptatum
     neque maiores dolorem unde? Aut dolorum quod excepturi fugit.
   </p>
-  <div class="mask" style="background-color: rgba(0, 0, 0, 0.5)"></div>
+  
+</div> -->
+
+<!-- <div class="bg-image custom-round">
+  <img
+    [src]="this.launchInfo?.image"
+    class="w-100"
+    alt="Louvre Museum"
+  />
+  <div class="mask" style="background-color: rgba(0, 0, 0, 0.5)">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <p class="text-white mb-0">Can you see me?</p>
+    </div>
+  </div>
 </div>
-</a>
+</a> -->
+
+<div class="card bg-dark text-white my-2">
+  <img  [src]="this.launchInfo?.image" class="card-img" alt="Stony Beach"/>
+  <div class="mask" style="background-color: rgba(0, 0, 0, 0.5)"></div>
+  <div class="card-img-overlay">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">
+      This is a wider card with supporting text below as a natural lead-in to additional
+      content. This content is a little bit longer.
+    </p>
+    <p class="card-text">Last updated 3 mins ago</p>
+  </div>
+</div>
 
 
   
