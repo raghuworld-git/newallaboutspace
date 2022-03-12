@@ -1,72 +1,18 @@
-<!-- <p style="border-style: solid;">
-    {{this.launchInfo.name}} <br/>
-    <a [routerLink]="['/launchdetail',this.launchInfo.slug]">Details</a>
-</p> -->
 
-<!-- <div class="card" style="width: 18rem;">
-    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-      <img [src]="this.launchInfo?.image" class="img-fluid img-custom" />
+  <div class="card my-2">    
+    <div class="bg-image hover-overlay ripple rounded-0" data-mdb-ripple-color="light">
+      <img class="img-fluid" [src]="this.launchInfo?.image"
+        [alt]="this.launchInfo.name" />
       <a [routerLink]="['/launchdetail',this.launchInfo.slug]">
-        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
       </a>
     </div>
-  
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
       <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk of the
-        card's content.
-      </p>
-    </div>
-</div> -->
-
-<!-- <div class="card" style="max-width: 22rem;">
-
-    
-    <img class="card-img-top" [src]="this.launchInfo?.image" alt="Card image cap">
-
-    
-    <div class="card-body text-white rgba-black-light p-2">
-      Sample textnmsadfnsdfsdnfasdnmfsadmnfsdmnfbsdmnfsdmnfbsadmnfbsdamfsdgfm
-    </div>
-
-  </div> -->
-  <a [routerLink]="['/launchdetail',this.launchInfo.slug]">
-  <!-- <div class="bg-image p-3 rounded mb-2 text-white" [style.background-image]="'url('+this.launchInfo?.image+')'">
-  <p>
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus praesentium
-    labore accusamus sequi, voluptate debitis tenetur in deleniti possimus modi voluptatum
-    neque maiores dolorem unde? Aut dolorum quod excepturi fugit.
-  </p>
-  
-</div> -->
-
-<!-- <div class="bg-image custom-round">
-  <img
-    [src]="this.launchInfo?.image"
-    class="w-100"
-    alt="Louvre Museum"
-  />
-  <div class="mask" style="background-color: rgba(0, 0, 0, 0.5)">
-    <div class="d-flex justify-content-center align-items-center h-100">
-      <p class="text-white mb-0">Can you see me?</p>
+        Recently, we added several exotic new dishes to our restaurant menu. They come from
+        countries such as Mexico, Argentina, and Spain. Come to us, have some wine and enjoy
+        our juicy meals from around the world.
+      </p>      
     </div>
   </div>
-</div>
-</a> -->
 
-<div class="card bg-dark text-white my-2">
-  <img  [src]="this.launchInfo?.image" class="card-img" alt="Stony Beach"/>
-  <div class="mask" style="background-color: rgba(0, 0, 0, 0.5)"></div>
-  <div class="card-img-overlay">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">
-      This is a wider card with supporting text below as a natural lead-in to additional
-      content. This content is a little bit longer.
-    </p>
-    <p class="card-text">Last updated 3 mins ago</p>
-  </div>
-</div>
-
-
-  

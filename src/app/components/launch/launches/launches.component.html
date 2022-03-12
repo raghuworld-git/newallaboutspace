@@ -1,7 +1,7 @@
 <h6>{{ this.launchType | titlecase}}</h6>
 
 <div class="row">
-    <div class="col-md-4" *ngFor="let launch of launchList">
+    <div class="col-md-3" *ngFor="let launch of launchList">
         <app-single-launch-card  [launchInfo]='launch'></app-single-launch-card>
     </div>        
 </div>    
