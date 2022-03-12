@@ -1,0 +1,47 @@
+<!-- <p style="border-style: solid;">
+    {{this.launchInfo.name}} <br/>
+    <a [routerLink]="['/launchdetail',this.launchInfo.slug]">Details</a>
+</p> -->
+
+<!-- <div class="card" style="width: 18rem;">
+    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+      <img [src]="this.launchInfo?.image" class="img-fluid img-custom" />
+      <a [routerLink]="['/launchdetail',this.launchInfo.slug]">
+        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+      </a>
+    </div>
+  
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">
+        Some quick example text to build on the card title and make up the bulk of the
+        card's content.
+      </p>
+    </div>
+</div> -->
+
+<!-- <div class="card" style="max-width: 22rem;">
+
+    
+    <img class="card-img-top" [src]="this.launchInfo?.image" alt="Card image cap">
+
+    
+    <div class="card-body text-white rgba-black-light p-2">
+      Sample textnmsadfnsdfsdnfasdnmfsadmnfsdmnfbsdmnfsdmnfbsadmnfbsdamfsdgfm
+    </div>
+
+  </div> -->
+  <a [routerLink]="['/launchdetail',this.launchInfo.slug]">
+  <div
+  class="bg-image p-3  shadow-1-strong rounded mb-2 text-white"
+  [style.background-image]="'url('+this.launchInfo?.image+')'">
+  <p>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus praesentium
+    labore accusamus sequi, voluptate debitis tenetur in deleniti possimus modi voluptatum
+    neque maiores dolorem unde? Aut dolorum quod excepturi fugit.
+  </p>
+</div>
+</a>
+
+
+  
