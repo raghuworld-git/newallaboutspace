@@ -1,5 +1,5 @@
-img{
-  width: 100%;
-  height: 23rem !important;
-  object-fit: fill;
+.customSize{
+    height: 200px;
+    background-repeat: no-repeat; background-position: center center; background-size: cover;
+    /* opacity:0.9; */
 }

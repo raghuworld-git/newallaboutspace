@@ -12,7 +12,7 @@ export class SingleLaunchCardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {      
   }
 
 }
