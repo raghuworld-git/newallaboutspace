@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LaunchDetailModel } from 'src/app/models/launch/launchDetail.model';
 import { LaunchService } from 'src/app/services/launch/launch-service.service';
+import { LaunchUtilService } from 'src/app/services/launch/launchUtil.service';
 
 @Component({
   selector: 'app-launch-detail',
@@ -11,7 +12,11 @@ import { LaunchService } from 'src/app/services/launch/launch-service.service';
 })
 export class LaunchDetailComponent implements OnInit,OnDestroy {
 
-  constructor(private router:ActivatedRoute,private launchService:LaunchService) { }
+  constructor(
+    private router:ActivatedRoute,
+    private launchService:LaunchService,
+    public launchUtilService:LaunchUtilService
+    ) { }
 
   slug!:string|null;
 

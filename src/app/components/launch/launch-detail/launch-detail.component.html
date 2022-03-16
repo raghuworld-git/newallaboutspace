@@ -1,17 +1,37 @@
 <div class="row">
     <div class="col">
-        <h5>{{this.launchDetails.name}}</h5>
+        <h5>{{this.launchDetails?.name}}</h5>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 text-center">
         <img
-            [src]='this.launchDetails.image' [ngStyle]="{'max-height':'400px'}"
+            [src]='this.launchDetails?.image' [ngStyle]="{'max-height':'400px'}"
             class="img-thumbnail"
-            alt="Hollywood Sign on The Hill"
+            [alt]="this.launchDetails?.name"
 />
-    </div>    
+    </div> 
+    <div class="col-md-6 mt-2 text-center d-flex flex-column">
+        <p class="h4">T- 02 d : 07 h : 42 m: 50 s</p>  
+        <p><i data-test="fa" class="fa fa-calendar-day"></i> {{this.launchDetails?.net | date:'medium'}}</p>
+        <p *ngIf="this.launchDetails?.rocket?.spacecraft_stage!=null">
+            <span class="badge badge-secondary">
+                Manned launch         
+            </span>
+        </p>
+        <p>
+            <span [title]="this.launchDetails?.status?.description" [ngClass]="['badge','badge-'+this.launchUtilService.getBadgeColor(this.launchDetails.status.abbrev)]">{{this.launchDetails?.status?.name}}            
+            </span>
+        </p>
+        <p>
+            <i data-test="fa" class="fa fa-map-marker-alt"></i>
+            {{this.launchDetails.pad.location.name}}
+        </p>
+        <p>
+           Agency: {{this.launchDetails.launch_service_provider.name}}
+        </p>
+    </div>  
 </div>
 
 

@@ -5,14 +5,13 @@ import { LaunchUtilService } from 'src/app/services/launch/launchUtil.service';
 @Component({
   selector: 'app-single-launch-card',
   templateUrl: './single-launch-card.component.html',
-  styleUrls: ['./single-launch-card.component.css'],
-  providers:[LaunchUtilService]
+  styleUrls: ['./single-launch-card.component.css']
 })
 export class SingleLaunchCardComponent implements OnInit {
 
   @Input() launchInfo!:LaunchInfoModel;
   
-  constructor(@Self() public launchUtilService:LaunchUtilService) { }
+  constructor(public launchUtilService:LaunchUtilService) { }
 
   ngOnInit(): void {      
   }
