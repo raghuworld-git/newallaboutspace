@@ -44,6 +44,7 @@
 </div>
 <div class="row row-cols-1 row-cols-md-5" *ngIf="this.launchDetails?.rocket?.spacecraft_stage!=null">
     <div class="col mt-1" *ngFor="let crew of this.launchDetails.customCrewMembers">
+     <a [routerLink]="['/astronaut',crew.astronaut.id]">
       <div class="card">
         <img [src]="crew.astronaut.profile_image" class="card-img-top" [alt]="crew.astronaut.name" [ngStyle]="{'height':'200px','width':'100%','object-fit':'contain'}"/>
         <div class="card-body">          
@@ -52,9 +53,10 @@
                 <span class="text-muted">{{crew.role.role}}</span></p>
         </div>
       </div>
+    </a>
     </div>    
   </div>
 
-  <!-- crew.astronaut.profile_image -->
+
 
 

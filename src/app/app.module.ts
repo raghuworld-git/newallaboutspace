@@ -9,6 +9,7 @@ import { LaunchesComponent } from './components/launch/launches/launches.compone
 import { LaunchDetailComponent } from './components/launch/launch-detail/launch-detail.component';
 import { SingleLaunchCardComponent } from './components/launch/single-launch-card/single-launch-card.component';
 import { HeaderComponent } from './components/common/header/header.component';
+import { AstronautDetailComponent } from './components/astronauts/astronaut-detail/astronaut-detail.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { HeaderComponent } from './components/common/header/header.component';
     LaunchesComponent,
     LaunchDetailComponent,
     SingleLaunchCardComponent,
-    HeaderComponent
+    HeaderComponent,
+    AstronautDetailComponent
   ],
   imports: [
     BrowserModule,
