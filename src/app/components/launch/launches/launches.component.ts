@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute,ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LaunchInfoModel } from 'src/app/models/launch/launchInfo.model';
-import { LaunchService } from 'src/app/services/launch-service.service';
+import { LaunchService } from 'src/app/services/launch/launch-service.service';
 
 @Component({
   selector: 'app-launches',
@@ -11,10 +11,11 @@ import { LaunchService } from 'src/app/services/launch-service.service';
 })
 export class LaunchesComponent implements OnInit,OnDestroy {
 
-  constructor(private router:ActivatedRoute , private launchService:LaunchService) { }
+  constructor(private router:ActivatedRoute , 
+    private launchService:LaunchService) { }
 
   launchType!:string|null;
-  launchList:LaunchInfoModel[]=[];
+  launchList:LaunchInfoModel[]=[];  
 
   private launchServiceSubscription!:Subscription;
 
@@ -25,16 +26,23 @@ export class LaunchesComponent implements OnInit,OnDestroy {
     })   
   }
 
-  private getlaunchesByType(launchType:string){
+  ngOnDestroy():void{
+    console.log(this.launchServiceSubscription);
+    this.launchServiceSubscription?.unsubscribe();
+    console.log(this.launchServiceSubscription);
+  }
+
+  private getlaunchesByType(launchType:string,filterType:string=""){
 
     if(launchType==="upcoming"){
-      this.launchServiceSubscription = this.launchService.getUpcomingLaunches()
+      this.launchServiceSubscription = this.launchService.getUpcomingLaunches(filterType)
       .subscribe(data=>{
-        this.launchList = data;
+        this.launchList = data;  
+        console.log(this.launchList);      
       });
     }
     else if (launchType==="previous"){
-      this.launchServiceSubscription = this.launchService.getPreviousLaunches()
+      this.launchServiceSubscription = this.launchService.getPreviousLaunches(filterType)
       .subscribe(data=>{
         this.launchList = data;
       });
@@ -42,8 +50,8 @@ export class LaunchesComponent implements OnInit,OnDestroy {
     
   }
 
-  ngOnDestroy():void{
-    this.launchServiceSubscription?.unsubscribe();
+  onFilterChange(selectEvent:any):void{    
+     this.getlaunchesByType(this.launchType!,selectEvent.target.value);
   }
 
 }

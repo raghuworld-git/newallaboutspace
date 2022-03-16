@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LaunchDetailModel } from 'src/app/models/launch/launchDetail.model';
-import { LaunchService } from 'src/app/services/launch-service.service';
+import { LaunchService } from 'src/app/services/launch/launch-service.service';
 
 @Component({
   selector: 'app-launch-detail',

@@ -1,7 +1,8 @@
 export class LaunchStatusModel {
-    constructor(
+    constructor(        
         public name:string,
         public abbrev:string,
-        public description:string
+        public description:string,
+        public id?:number,
     ){}
 }

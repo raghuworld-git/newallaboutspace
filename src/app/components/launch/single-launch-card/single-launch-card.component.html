@@ -1,8 +1,16 @@
 <a [routerLink]="['/launchdetail',this.launchInfo.slug]">
   <div class="bg-image customSize card shadow-1-strong" [style.background-image]="'url('+this.launchInfo.image+')'">
     <div class="card-body text-white d-flex flex-column rgba-black-light">            
-        <span class="mb-1 d-inline-block text-truncate" [title]='this.launchInfo.name'>{{this.launchInfo.name}}</span>
-        <span class="mb-1">{{this.launchInfo.status.abbrev}}</span>
+        <span class="mb-1 d-inline-block text-truncate" [title]='this.launchInfo.name'>{{this.launchInfo.name}}</span>        
+        <h6>
+          <span [title]="this.launchInfo.status.name" [ngClass]="['badge','badge-'+this.  launchUtilService.getBadgeColor(this.launchInfo.status.abbrev), 'mb-1']">{{this.launchInfo.status.abbrev}}            
+          </span>
+
+          &nbsp;
+          
+          <span *ngIf="this.launchInfo.rocket.spacecraft_stage!=null" [title]="this.launchInfo.status.description" class="badge badge-secondary mb-1">Manned           
+          </span>
+        </h6>
         <span class="mb-2">{{this.launchInfo.net | date:'medium'}}</span>
         <small [title]='this.launchInfo.launch_service_provider.name' class="d-inline-block text-truncate">{{this.launchInfo.launch_service_provider.name}}</small>                   
     </div>
