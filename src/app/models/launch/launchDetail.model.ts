@@ -1,3 +1,4 @@
+import { AstronautModel } from "./astronauts.model";
 import { spacecraft_stage } from "./launchInfo.model";
 import { LaunchPadModel } from "./launchPads.model";
 import { LaunchServiceProviderModel } from "./launchServiceProvider.model";
@@ -13,6 +14,7 @@ export class LaunchDetailModel {
         public net:string,
         public launch_service_provider:LaunchServiceProviderModel,        
         public rocket: {spacecraft_stage:spacecraft_stage},
-        public pad:LaunchPadModel
+        public customCrewMembers : AstronautModel[],
+        public pad:LaunchPadModel,
     ){}
 }

@@ -5,6 +5,7 @@ import { LaunchDetailModel } from 'src/app/models/launch/launchDetail.model';
 import { LaunchService } from 'src/app/services/launch/launch-service.service';
 import { LaunchUtilService } from 'src/app/services/launch/launchUtil.service';
 
+
 @Component({
   selector: 'app-launch-detail',
   templateUrl: './launch-detail.component.html',

@@ -5,33 +5,56 @@
 </div>
 
 <div class="row">
-    <div class="col-md-6 text-center">
+    <div class="col-md-6 mb-2">
         <img
-            [src]='this.launchDetails?.image' [ngStyle]="{'max-height':'400px'}"
+            [src]='this.launchDetails?.image' [ngStyle]="{'height':'300px'}"
             class="img-thumbnail"
-            [alt]="this.launchDetails?.name"
-/>
+            [alt]="this.launchDetails?.name"/>
     </div> 
-    <div class="col-md-6 mt-2 text-center d-flex flex-column">
-        <p class="h4">T- 02 d : 07 h : 42 m: 50 s</p>  
-        <p><i data-test="fa" class="fa fa-calendar-day"></i> {{this.launchDetails?.net | date:'medium'}}</p>
-        <p *ngIf="this.launchDetails?.rocket?.spacecraft_stage!=null">
-            <span class="badge badge-secondary">
-                Manned launch         
-            </span>
-        </p>
-        <p>
-            <span [title]="this.launchDetails?.status?.description" [ngClass]="['badge','badge-'+this.launchUtilService.getBadgeColor(this.launchDetails.status.abbrev)]">{{this.launchDetails?.status?.name}}            
-            </span>
-        </p>
-        <p>
-            <i data-test="fa" class="fa fa-map-marker-alt"></i>
-            {{this.launchDetails.pad.location.name}}
-        </p>
-        <p>
-           Agency: {{this.launchDetails.launch_service_provider.name}}
-        </p>
+    <div class="col-md-6">
+        <div class="card" [ngStyle]="{'height':'300px'}">
+            <div class="card-body text-center d-flex flex-column">            
+                <p class="h4">T- 02 d : 07 h : 42 m: 50 s</p>  
+                <p><i data-test="fa" class="fa fa-calendar-day"></i> {{this.launchDetails?.net | date:'medium'}}</p>
+                <p *ngIf="this.launchDetails?.rocket?.spacecraft_stage!=null">
+                    <span class="badge badge-secondary">
+                        Manned launch         
+                    </span>
+                </p>
+                <p>
+                    <span [title]="this.launchDetails?.status?.description" [ngClass]="['badge','badge-'+this.launchUtilService.getBadgeColor(this.launchDetails.status.abbrev)]">{{this.launchDetails?.status?.name}}            
+                    </span>
+                </p>
+                <p>
+                    <i data-test="fa" class="fa fa-map-marker-alt"></i>
+                    {{this.launchDetails.pad.location.name}}
+                </p>
+                <p>
+                Agency: {{this.launchDetails.launch_service_provider.name}}
+                </p>
+             </div>
+        </div>
     </div>  
 </div>
+
+<div class="row mt-1" *ngIf="this.launchDetails?.rocket?.spacecraft_stage!=null">
+    <div class="col">
+            <h6>Crew members: </h6>
+    </div>
+</div>
+<div class="row row-cols-1 row-cols-md-5" *ngIf="this.launchDetails?.rocket?.spacecraft_stage!=null">
+    <div class="col mt-1" *ngFor="let crew of this.launchDetails.customCrewMembers">
+      <div class="card">
+        <img [src]="crew.astronaut.profile_image" class="card-img-top" [alt]="crew.astronaut.name" [ngStyle]="{'height':'200px','width':'100%','object-fit':'contain'}"/>
+        <div class="card-body">          
+            <p class="card-text text-white d-flex flex-column" style="font-size: small;">
+                <span>{{crew.astronaut.name}}</span>
+                <span class="text-muted">{{crew.role.role}}</span></p>
+        </div>
+      </div>
+    </div>    
+  </div>
+
+  <!-- crew.astronaut.profile_image -->
 
 

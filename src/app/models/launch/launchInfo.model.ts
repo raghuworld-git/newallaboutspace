@@ -17,8 +17,8 @@ export class LaunchInfoModel {
 export class spacecraft_stage {
     constructor (
         public destination:string,
-        public launch_crew :AstronautModel,
-        public onboard_crew : AstronautModel,
-        public landing_crew : AstronautModel
+        public launch_crew :AstronautModel[],
+        public onboard_crew : AstronautModel[],
+        public landing_crew : AstronautModel[]
         ){}
 }

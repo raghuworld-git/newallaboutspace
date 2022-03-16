@@ -2,10 +2,10 @@ import { LaunchServiceProviderModel } from "./launchServiceProvider.model";
 
 export class AstronautModel {
     constructor(
-        public role:{role:string,priority:number},
+        public role:{role:string,priority:number},        
         public astronaut : 
             { 
-                id:number,
+                id:number,                
                 name:string,
                 type:{name:string},
                 status:{name:string},
@@ -20,6 +20,7 @@ export class AstronautModel {
                 profile_image:string | null,
                 first_flight:string | null,
                 last_flight:string | null
-            }
+            },
+            public crewGroup?:string[],
     ){}
 }

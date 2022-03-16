@@ -37,8 +37,7 @@ export class LaunchesComponent implements OnInit,OnDestroy {
     if(launchType==="upcoming"){
       this.launchServiceSubscription = this.launchService.getUpcomingLaunches(filterType)
       .subscribe(data=>{
-        this.launchList = data;  
-        console.log(this.launchList);      
+        this.launchList = data;         
       });
     }
     else if (launchType==="previous"){
