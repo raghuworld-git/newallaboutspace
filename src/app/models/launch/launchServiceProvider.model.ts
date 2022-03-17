@@ -1,19 +1,17 @@
-export class LaunchServiceProviderModel {
-    constructor(
-        public id:number,
-        public name:string,
-        public type:string| null,
-        public country_code: string,
-        public abbrev:string,
-        public description: string | null,
-        public administrator : string | null,
-        public founding_year : string | null,
-        public launchers : string,
-        public spacecraft :string,
-        public info_url:string | null,
-        public wiki_url : string | null,
-        public logo_url : string | null,
-        public image_url : string | null,
-        public nation_url : string | null
-    ){}
+export interface ILaunchServiceProviderModel {   
+         id:number,
+         name:string,
+         type:string| null,
+         country_code: string,
+         abbrev:string,
+         description: string | null,
+         administrator : string | null,
+         founding_year : string | null,
+         launchers : string,
+         spacecraft :string,
+         info_url:string | null,
+         wiki_url : string | null,
+         logo_url : string | null,
+         image_url : string | null,
+         nation_url : string | null    
 }

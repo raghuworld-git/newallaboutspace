@@ -1,13 +1,9 @@
-import { LaunchServiceProviderModel } from "./launchServiceProvider.model";
-
-export class AstronautModel {
-    constructor(
-        public role:{role:string,priority:number},        
-        public astronaut : {
+export interface IAstronautModel {   
+         role:{role:string,priority:number},        
+         astronaut : {
                 id:number,                
                 name:string,               
                 profile_image:string | null                
         },
-        public crewGroup?:string[],
-    ){}
+         crewGroup?:string[],    
 }

@@ -1,8 +1,6 @@
-export class LaunchStatusModel {
-    constructor(        
-        public name:string,
-        public abbrev:string,
-        public description:string,
-        public id?:number,
-    ){}
+export interface ILaunchStatusModel {         
+        name:string,
+        abbrev:string,
+        description:string,
+        id:number,    
 }

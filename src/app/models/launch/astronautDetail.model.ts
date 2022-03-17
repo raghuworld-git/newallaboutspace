@@ -1,12 +1,11 @@
-import { LaunchServiceProviderModel } from "./launchServiceProvider.model";
+import { ILaunchServiceProviderModel } from "./launchServiceProvider.model";
 
-export class AstronautDetailModel {
-    constructor(         
+export interface IAstronautDetailModel {   
                 id:number,                
                 name:string,
                 type:{name:string},
                 status:{name:string},
-                agency:LaunchServiceProviderModel,
+                agency:ILaunchServiceProviderModel,
                 date_of_birth:string,
                 date_of_death:string | null,
                 nationality:string,
@@ -16,6 +15,5 @@ export class AstronautDetailModel {
                 bio:string | null,
                 profile_image:string | null,
                 first_flight:string | null,
-                last_flight:string | null            
-    ){}
+                last_flight:string | null      
 }

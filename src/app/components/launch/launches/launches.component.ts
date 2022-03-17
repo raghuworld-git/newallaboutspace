@@ -26,10 +26,8 @@ export class LaunchesComponent implements OnInit,OnDestroy {
     })   
   }
 
-  ngOnDestroy():void{
-    console.log(this.launchServiceSubscription);
-    this.launchServiceSubscription?.unsubscribe();
-    console.log(this.launchServiceSubscription);
+  ngOnDestroy():void{   
+    this.launchServiceSubscription?.unsubscribe();    
   }
 
   private getlaunchesByType(launchType:string,filterType:string=""){
