@@ -42,15 +42,15 @@
             <h6>Crew members: </h6>
     </div>
 </div>
-<div class="row row-cols-1 row-cols-md-5" *ngIf="this.launchDetails?.rocket?.spacecraft_stage!=null">
+<div class="row" *ngIf="this.launchDetails?.rocket?.spacecraft_stage!=null">
     <div class="col mt-1" *ngFor="let crew of this.launchDetails.customCrewMembers">
      <a [routerLink]="['/astronaut',crew.astronaut.id]">
       <div class="card">
         <img [src]="crew.astronaut.profile_image" class="card-img-top" [alt]="crew.astronaut.name" [ngStyle]="{'height':'200px','width':'100%','object-fit':'contain'}"/>
         <div class="card-body">          
             <p class="card-text text-white d-flex flex-column" style="font-size: small;">
-                <span>{{crew.astronaut.name}}</span>
-                <span class="text-muted">{{crew.role.role}}</span></p>
+                <span [title]='crew.astronaut.name' class="d-inline-block text-truncate">{{crew.astronaut.name}}</span>
+                <span [title]='crew.role.role' class="text-muted d-inline-block text-truncate">{{crew.role.role}}</span></p>
         </div>
       </div>
     </a>
