@@ -1,9 +1,9 @@
 import { IAstronautModel } from "./astronauts.model";
-import { spacecraft_stage } from "./launchInfo.model";
 import { ILaunchPadModel } from "./launchPads.model";
 import { ILaunchServiceProviderModel } from "./launchServiceProvider.model";
 import { ILaunchStatusModel } from "./launchStatus.model";
 import { ILaunchUpdatesModel } from "./launchUpdates.model";
+import { IRocketModel } from "./rocket.model";
 import { IVidURL } from "./videoURL.model";
 
 export interface ILaunchDetailModel {   
@@ -13,7 +13,7 @@ export interface ILaunchDetailModel {
          updates: ILaunchUpdatesModel[],
          net:string,
          launch_service_provider:ILaunchServiceProviderModel,        
-         rocket: {spacecraft_stage:spacecraft_stage},
+         rocket: IRocketModel,
          customCrewMembers : IAstronautModel[],
          pad:ILaunchPadModel,   
          vidURLs:IVidURL[]

@@ -1,6 +1,7 @@
 import { IAstronautModel } from "./astronauts.model";
 import { ILaunchStatusModel } from "./launchStatus.model";
 import { ILaunchServiceProviderModel } from "./launchServiceProvider.model";
+import { IRocketModel } from "./rocket.model";
 
 export interface LaunchInfoModel {   
          slug:string,
@@ -9,12 +10,6 @@ export interface LaunchInfoModel {
          status : ILaunchStatusModel,
          net:string,
          launch_service_provider:ILaunchServiceProviderModel,
-         rocket: { spacecraft_stage:spacecraft_stage}    
+         rocket: IRocketModel
 }
 
-export interface spacecraft_stage {    
-         destination:string,
-         launch_crew :IAstronautModel[],
-         onboard_crew : IAstronautModel[],
-         landing_crew : IAstronautModel[]        
-}
