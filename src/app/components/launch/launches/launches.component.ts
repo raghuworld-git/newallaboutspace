@@ -26,8 +26,7 @@ export class LaunchesComponent implements OnInit,OnDestroy {
     })   
   }
 
-  ngOnDestroy():void{ 
-    alert('In ngondestory')  
+  ngOnDestroy():void{     
     this.launchServiceSubscription?.unsubscribe();    
   }
 
