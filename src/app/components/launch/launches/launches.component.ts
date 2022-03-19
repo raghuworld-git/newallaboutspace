@@ -19,14 +19,15 @@ export class LaunchesComponent implements OnInit,OnDestroy {
 
   private launchServiceSubscription!:Subscription;
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
     this.router.paramMap.subscribe((params:ParamMap)=>{
       this.launchType=params.get("launchType");
       this.getlaunchesByType(this.launchType!);
     })   
   }
 
-  ngOnDestroy():void{   
+  ngOnDestroy():void{ 
+    alert('In ngondestory')  
     this.launchServiceSubscription?.unsubscribe();    
   }
 
