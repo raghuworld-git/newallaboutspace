@@ -1,18 +1,18 @@
-import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import {  Observable } from "rxjs";
 import { IAstronautDetailModel } from "src/app/models/launch/astronautDetail.model";
+import { HttpRequestService } from "src/app/shared/services/http-request.service";
 
 @Injectable({
     providedIn:'root'
 })
 export class AstronautService {
 
-        constructor(private http:HttpClient){}
+        constructor(private requestService:HttpRequestService){}
 
-        private astronautURL:string='https://lldev.thespacedevs.com/2.2.0/astronaut/';
+        private action:string='astronaut';
 
-        getAstronautDetailsById(id:number):Observable<IAstronautDetailModel>{
-            return this.http.get<IAstronautDetailModel>(`${this.astronautURL}${id}`);    
+        getAstronautDetailsById(id:string):Observable<IAstronautDetailModel>{
+            return this.requestService.get<IAstronautDetailModel>(`${this.action}/${id}`);    
         }
 }

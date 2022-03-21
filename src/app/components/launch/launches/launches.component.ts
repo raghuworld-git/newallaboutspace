@@ -32,14 +32,22 @@ export class LaunchesComponent implements OnInit, OnDestroy {
 
   private getlaunchesByType(launchType: string, filterType: string = "") {
 
+    let params:{name:string,value:string}[]=[];
+
+    params.push({name:'mode',value:'detailed'});
+    params.push({name:'hide_recent_previous',value:'true'});
+    if(filterType){
+      params.push({name:'is_crewed',value:'true'});
+    }
+
     if (launchType === "upcoming") {
-      this.launchServiceSubscription = this.launchService.getUpcomingLaunches(filterType)
+      this.launchServiceSubscription = this.launchService.getUpcomingLaunches(params)
         .subscribe(data => {
           this.launchList = data;
         });
     }
     else if (launchType === "previous") {
-      this.launchServiceSubscription = this.launchService.getPreviousLaunches(filterType)
+      this.launchServiceSubscription = this.launchService.getPreviousLaunches(params)
         .subscribe(data => {
           this.launchList = data;
         });

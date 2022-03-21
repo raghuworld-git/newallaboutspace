@@ -8,12 +8,11 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LaunchesComponent } from './components/launch/launches/launches.component';
 import { LaunchDetailComponent } from './components/launch/launch-detail/launch-detail.component';
 import { SingleLaunchCardComponent } from './components/launch/single-launch-card/single-launch-card.component';
-import { HeaderComponent } from './components/common/header/header.component';
+import { HeaderComponent } from './shared/components/header/header.component';
 import { AstronautDetailComponent } from './components/astronauts/astronaut-detail/astronaut-detail.component';
-import { SpinnerComponent } from './components/common/spinner/spinner.component';
-import { LoaderInterceptor } from './interceptor/loader.interceptor';
-import { UpcomingComponent } from './components/launch/upcoming/upcoming.component';
-import { PastComponent } from './components/launch/past/past.component';
+import { SpinnerComponent } from './shared/components/spinner/spinner.component';
+import { LoaderInterceptor } from './shared/interceptor/loader.interceptor';
+
 
 
 @NgModule({
@@ -25,9 +24,7 @@ import { PastComponent } from './components/launch/past/past.component';
     SingleLaunchCardComponent,
     HeaderComponent,
     AstronautDetailComponent,
-    SpinnerComponent,
-    UpcomingComponent,
-    PastComponent
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
