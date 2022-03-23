@@ -22,8 +22,8 @@
           <i data-test="fa" class="fa fa-calendar-day"></i>
           {{ this.launchDetails?.net | date: "medium" }}
         </p>
-        <p *ngIf="this.launchDetails?.rocket?.spacecraft_stage != null">
-          <span class="badge badge-secondary"> Manned launch </span>
+        <p>
+          <span class="badge badge-secondary"> {{this.launchDetails?.rocket?.spacecraft_stage != null ? "Manned":"Un-manned" }} launch </span>
         </p>
         <p>
           <span
