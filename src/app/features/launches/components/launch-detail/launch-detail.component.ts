@@ -3,9 +3,9 @@ import { SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 
-import { ILaunchDetailModel } from 'src/app/models/launch/launchDetail.model';
-import { LaunchService } from 'src/app/services/launch/launch-service.service';
-import { LaunchUtilService } from 'src/app/services/launch/launchUtil.service';
+import { ILaunchDetailModel } from '../../../../shared/models/launch/launchDetail.model';
+import { LaunchService } from '../../../../core/services/launch/launch-service.service';
+import { LaunchUtilService } from '../../../../core/services/launch/launchUtil.service';
 
 
 @Component({

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import {  Observable } from "rxjs";
-import { IAstronautDetailModel } from "src/app/models/launch/astronautDetail.model";
-import { HttpRequestService } from "src/app/shared/services/http-request.service";
+import { Observable } from "rxjs";
+import { HttpRequestService } from "../http/http-request.service";
+import { IAstronautDetailModel } from "../../../shared/models/launch/astronautDetail.model";
 
 @Injectable({
     providedIn:'root'

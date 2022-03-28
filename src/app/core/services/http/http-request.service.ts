@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
 import {catchError} from "rxjs/operators";
 
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../../environments/environment';
 // Reference site for  generic request service
 //https://nichola.dev/generic-approach-to-consume-rest-api/
 

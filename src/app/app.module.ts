@@ -3,36 +3,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
-import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { DashboardModule } from './features/dashboard/dashboard.module';
 import { CoreModule } from './core/core.module';
 
 import { AppComponent } from './app.component';
-import { LaunchesComponent } from './components/launch/launches/launches.component';
-import { LaunchDetailComponent } from './components/launch/launch-detail/launch-detail.component';
-import { SingleLaunchCardComponent } from './components/launch/single-launch-card/single-launch-card.component';
-import { AstronautDetailComponent } from './components/astronauts/astronaut-detail/astronaut-detail.component';
-
-
-
-
-
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,    
-    LaunchesComponent,
-    LaunchDetailComponent,
-    SingleLaunchCardComponent,    
-    AstronautDetailComponent
+    AppComponent   
   ],
   imports: [
+    //Common Modules - Built in
     BrowserModule,    
     HttpClientModule,
     RouterModule,
+    AppRoutingModule,
 
-    DashboardModule,
-    CoreModule
+    // Common Modules - Custom
+    CoreModule,
+    DashboardModule,    
   ],
   bootstrap: [AppComponent]
 })

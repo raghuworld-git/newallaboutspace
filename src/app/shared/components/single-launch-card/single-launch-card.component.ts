@@ -1,6 +1,6 @@
-import { Component, Input, OnInit, Self } from '@angular/core';
-import { LaunchInfoModel } from 'src/app/models/launch/launchInfo.model';
-import { LaunchUtilService } from 'src/app/services/launch/launchUtil.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { LaunchUtilService } from '../../../core/services/launch/launchUtil.service';
+import { LaunchInfoModel } from '../../models/launch/launchInfo.model';
 
 @Component({
   selector: 'app-single-launch-card',
@@ -10,10 +10,10 @@ import { LaunchUtilService } from 'src/app/services/launch/launchUtil.service';
 export class SingleLaunchCardComponent implements OnInit {
 
   @Input() launchInfo!:LaunchInfoModel;
-  
+
   constructor(public launchUtilService:LaunchUtilService) { }
 
-  ngOnInit(): void {      
+  ngOnInit(): void {
   }
 
 }
