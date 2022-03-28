@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LaunchInfoModel } from 'src/app/models/launch/launchInfo.model';
@@ -9,13 +9,16 @@ import { LaunchService } from 'src/app/services/launch/launch-service.service';
   templateUrl: './launches.component.html',
   styleUrls: ['./launches.component.css']
 })
-export class LaunchesComponent implements OnInit, OnDestroy {
+export class LaunchesComponent implements OnInit,AfterViewInit ,OnDestroy {
 
   constructor(private router: ActivatedRoute,
-    private launchService: LaunchService) { }
+    private launchService: LaunchService,
+    private renderer:Renderer2) { }
 
   launchType!: string | null;
   launchList: LaunchInfoModel[] = [];
+
+  @ViewChild('launchsFilter') launcFilterRef!:ElementRef;  
 
   private launchServiceSubscription!: Subscription;
 
@@ -26,8 +29,17 @@ export class LaunchesComponent implements OnInit, OnDestroy {
     })
   }
 
+  ngAfterViewInit(): void {
+    console.log("ngAfterViewInit",this.launcFilterRef);
+    //this.renderer.
+  }
+  
   ngOnDestroy(): void {
     this.launchServiceSubscription?.unsubscribe();
+  }
+  
+  onFilterChange(selectEvent: any): void {
+    this.getlaunchesByType(this.launchType!, selectEvent.target.value);
   }
 
   private getlaunchesByType(launchType: string, filterType: string = "") {
@@ -55,8 +67,5 @@ export class LaunchesComponent implements OnInit, OnDestroy {
 
   }
 
-  onFilterChange(selectEvent: any): void {
-    this.getlaunchesByType(this.launchType!, selectEvent.target.value);
-  }
 
 }
