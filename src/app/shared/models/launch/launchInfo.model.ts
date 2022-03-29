@@ -8,6 +8,7 @@ export interface LaunchInfoModel {
          name:string,
          image:string | null,
          status : ILaunchStatusModel,
+         statusColor:string,
          net:string,
          launch_service_provider:ILaunchServiceProviderModel,
          rocket: IRocketModel

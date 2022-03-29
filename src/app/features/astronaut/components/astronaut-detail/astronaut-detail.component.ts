@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { AstronautService } from 'src/app/services/astronaut/astronaut-service.service';
+import { AstronautService } from '../../../../core/services/astronaut/astronaut-service.service';
 
 @Component({
   selector: 'app-astronaut-detail',

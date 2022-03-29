@@ -22,9 +22,7 @@ export class PastComponent implements OnInit {
   private launchServiceSubscription!: Subscription;
 
   ngOnInit(): void {
-    this.router.paramMap.subscribe((params: ParamMap) => {
-      this.getlaunchesByType();
-    })
+    this.getlaunchesByType();
   }
 
   ngOnDestroy(): void {
@@ -35,17 +33,8 @@ export class PastComponent implements OnInit {
     this.getlaunchesByType(selectEvent.target.value);
   }
 
-  private getlaunchesByType(filterType: string = "") {
-
-    let params: { name: string, value: string }[] = [];
-
-    params.push({ name: 'mode', value: 'detailed' });
-    params.push({ name: 'hide_recent_previous', value: 'true' });
-    if (filterType) {
-      params.push({ name: 'is_crewed', value: 'true' });
-    }
-
-    this.launchServiceSubscription = this.launchService.getPreviousLaunches(params)
+  private getlaunchesByType(filterType: string = "") {           
+    this.launchServiceSubscription = this.launchService.getPreviousLaunches(filterType)
       .subscribe(data => {
         this.launchList = data;
       });

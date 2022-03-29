@@ -1,11 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { SafeResourceUrl } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { ILaunchDetailModel } from '../../../../shared/models/launch/launchDetail.model';
 import { LaunchService } from '../../../../core/services/launch/launch-service.service';
-import { LaunchUtilService } from '../../../../core/services/launch/launchUtil.service';
+
 
 
 @Component({
@@ -18,7 +18,7 @@ export class LaunchDetailComponent implements OnInit, OnDestroy {
   constructor(
     private router: ActivatedRoute,    
     private launchService: LaunchService,
-    public launchUtilService: LaunchUtilService
+    private domSanitize:DomSanitizer
   ) { }
 
   slug!: string | null;
@@ -30,17 +30,12 @@ export class LaunchDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.router.paramMap.subscribe((params: ParamMap) => {
-      this.slug = params.get("slug");
-      
-      let queryParams:{name:string,value:string}[]=[];
-      queryParams.push({name:'slug',value:this.slug!});
-      queryParams.push({name:'mode',value:'detailed'});
-
-      this.launchServiceSubscription = this.launchService.getlaunchDetailsBySlug(queryParams)
+      this.slug = params.get("slug");           
+      this.launchServiceSubscription = this.launchService.getlaunchDetailsBySlug(this.slug!)
         .subscribe({
           next: data => {
             this.launchDetails = data;
-            this.videoURL = data.vidURLs.length > 0 ? this.launchUtilService.createYoutubeEmbedURL(data.vidURLs[0].url) : null;
+            this.videoURL = this.launchDetails.vidURLCustom!=null ? this.domSanitize.bypassSecurityTrustResourceUrl(this.launchDetails.vidURLCustom!) :null;            
           }
         })
     })

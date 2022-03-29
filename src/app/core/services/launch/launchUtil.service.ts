@@ -1,12 +1,11 @@
 import { Injectable } from "@angular/core";
-import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
-
 
 @Injectable({
     providedIn:'root'
 })
 export class LaunchUtilService {
-    private sanitizer!: DomSanitizer;
+    
+
     private launchStatusList:{abbrev:string}[]=
                     [
                          { abbrev:'Hold' },
@@ -38,7 +37,7 @@ export class LaunchUtilService {
         }
     }
 
-    createYoutubeEmbedURL(url: string | null): SafeResourceUrl | null {
+    createYoutubeEmbedURL(url: string | null): string | null {
         if (url != null || url != "") {
     
           let tempURLArray = url!.split("watch?v=");
@@ -46,7 +45,7 @@ export class LaunchUtilService {
             return null;
           }
           else {
-            return this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${tempURLArray[1].toString()}`);
+            return `https://www.youtube.com/embed/${tempURLArray[1].toString()}`;
           }
         }
         else {

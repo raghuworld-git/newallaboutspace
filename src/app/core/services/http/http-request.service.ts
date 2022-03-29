@@ -26,7 +26,7 @@ export class HttpRequestService {
                 paramsString+=`&${item.name}=${item.value}`
             }                       
         });
-        return this.http.get<T>(`${this.APIUrl}/${action}${paramsString}`)
+        return this.http.get<T>(`${this.APIUrl}/${action}/${paramsString}`)
         .pipe(
             catchError(this.handleError)
         );

@@ -10,8 +10,7 @@ import { LaunchInfoModel } from '../../models/launch/launchInfo.model';
 export class SingleLaunchCardComponent implements OnInit {
 
   @Input() launchInfo!:LaunchInfoModel;
-
-  constructor(public launchUtilService:LaunchUtilService) { }
+  @Input() url!:string;
 
   ngOnInit(): void {
   }

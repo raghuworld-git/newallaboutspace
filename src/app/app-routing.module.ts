@@ -9,6 +9,10 @@ const routes:Routes=[
         path:'launches', loadChildren:()=> import('./features/launches/launches.module')
         .then(m=>m.LaunchesModule)
     },
+    {
+        path:'astronaut',loadChildren:()=> import('./features/astronaut/astronaut.module')
+        .then(m=>m.AstronautModule)
+    },
     { path:'', redirectTo:'/dashboard',pathMatch:'full'},        
 ]
 

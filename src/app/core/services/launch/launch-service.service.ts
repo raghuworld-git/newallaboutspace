@@ -5,6 +5,7 @@ import { LaunchInfoModel } from '../../../shared/models/launch/launchInfo.model'
 import { ILaunchDetailModel } from '../../../shared/models/launch/launchDetail.model';
 import { IAstronautModel } from '../../../shared/models/launch/astronauts.model';
 import { HttpRequestService } from '../http/http-request.service';
+import { LaunchUtilService } from './launchUtil.service';
 
 
 @Injectable({
@@ -12,34 +13,57 @@ import { HttpRequestService } from '../http/http-request.service';
 })
 export class LaunchService  {
   
-  constructor(private requestService:HttpRequestService){}
+  constructor(
+    private requestService:HttpRequestService,
+    private launchUtil : LaunchUtilService
+    ){}
 
    private launchAction:string='launch'
    private upcomingAction:string=`${this.launchAction}/upcoming`;
    private previousAction:string=`${this.launchAction}/previous`;
 
 
-   getUpcomingLaunches(params:IQueryParams[]):Observable<LaunchInfoModel[]>{    
+   getUpcomingLaunches(filterType:string):Observable<LaunchInfoModel[]>{      
+    let params:IQueryParams[]=[];
+    params.push({ name: 'mode', value: 'detailed' });
+    params.push({ name: 'hide_recent_previous', value: 'true' }); 
+
+    if(filterType==='is_crewed'){
+      params.push({ name: 'is_crewed', value: 'true' });
+    }
      return this.requestService.get<ILaunchesResult>(this.upcomingAction,params).pipe(map((mapdata)=>{
-       return mapdata.results
+       return this.populateLaunchListCustomProperties(mapdata.results);
      }));
    }
 
-   getPreviousLaunches(params:IQueryParams[]):Observable<LaunchInfoModel[]>{  
+   getPreviousLaunches(filterType:string):Observable<LaunchInfoModel[]>{  
+    let params:IQueryParams[]=[];
+    params.push({ name: 'mode', value: 'detailed' });
+    params.push({ name: 'hide_recent_previous', value: 'true' });
+        
+    if(filterType==='is_crewed'){
+      params.push({ name: 'is_crewed', value: 'true' });
+    }
+
     return this.requestService.get<ILaunchesResult>(this.previousAction,params).pipe(map((mapdata)=>{
-      return mapdata.results
+      return this.populateLaunchListCustomProperties(mapdata.results);
     }));
   }
 
-  getlaunchDetailsBySlug(params:IQueryParams[]):Observable<ILaunchDetailModel>{
-    return this.requestService.get<ILaunchesResult>(this.launchAction,params)
+  
+
+  getlaunchDetailsBySlug(slug:string):Observable<ILaunchDetailModel>{    
+    let queryParams:{name:string,value:string}[]=[];
+    queryParams.push({name:'slug',value:slug});
+    queryParams.push({name:'mode',value:'detailed'});    
+    return this.requestService.get<ILaunchesResult>(this.launchAction,queryParams)
     .pipe(map((mapdata)=>{      
-      return this.loadCustomProperties(mapdata.results[0]);
+      return this.populateCustomProperties(mapdata.results[0]);
     }));    
   } 
 
-  private loadCustomProperties(launchDetails:ILaunchDetailModel):ILaunchDetailModel{
-      let launchTempData!:ILaunchDetailModel;
+  private populateCustomProperties(launchDetails:ILaunchDetailModel):ILaunchDetailModel{
+      let launchTempData:ILaunchDetailModel={...launchDetails};
       let crewMembers:IAstronautModel[]=[];
       if(launchDetails.rocket.spacecraft_stage!=null){          
           launchDetails.rocket.spacecraft_stage.landing_crew.map((crew)=>{                                     
@@ -69,10 +93,22 @@ export class LaunchService  {
           })
           launchTempData= {...launchDetails,customCrewMembers:crewMembers}
       }
-      else{
-        return launchDetails
-      }    
+      
+      launchTempData.statusColor = this.launchUtil.getBadgeColor(launchTempData.status.abbrev)
+        
+     launchTempData.vidURLCustom = launchTempData.vidURLs.length > 0 ? this.launchUtil.createYoutubeEmbedURL(launchTempData.vidURLs[0].url) : null;
+
       return launchTempData;
+  }
+
+  private  populateLaunchListCustomProperties (launchesList : LaunchInfoModel[]):LaunchInfoModel[]{
+      let data=launchesList;
+      
+      data.forEach((launches)=>{
+        launches.statusColor = this.launchUtil.getBadgeColor(launches.status.abbrev)
+      }); 
+      
+      return data;
   }
 }
 

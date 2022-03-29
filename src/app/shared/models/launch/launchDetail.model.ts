@@ -10,11 +10,13 @@ export interface ILaunchDetailModel {
          name:string,
          image:string,
          status : ILaunchStatusModel,
+         statusColor:string,
          updates: ILaunchUpdatesModel[],
          net:string,
          launch_service_provider:ILaunchServiceProviderModel,        
          rocket: IRocketModel,
          customCrewMembers : IAstronautModel[],
          pad:ILaunchPadModel,   
-         vidURLs:IVidURL[]
+         vidURLs:IVidURL[],
+         vidURLCustom : string | null
 }

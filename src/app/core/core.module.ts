@@ -1,3 +1,4 @@
+import { CommonModule } from "@angular/common";
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgModule, Optional, SkipSelf } from "@angular/core";
 import { RouterModule } from "@angular/router";
@@ -18,7 +19,8 @@ import { LoaderInterceptor } from "./interceptor/loader.interceptor";
         multi:true
       }],
       imports:[
-        RouterModule
+        RouterModule,
+        CommonModule
       ],
       exports:[
           HeaderComponent,
