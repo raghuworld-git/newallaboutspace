@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-
 import { DashboardModule } from './features/dashboard/dashboard.module';
 import { CoreModule } from './core/core.module';
 
@@ -12,18 +11,19 @@ import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent   
+    AppComponent         
   ],
   imports: [
-    //Common Modules - Built in
+    //Common Modules - Built in    
     BrowserModule,    
     HttpClientModule,
     RouterModule,
-    AppRoutingModule,
+       
 
     // Common Modules - Custom
+    AppRoutingModule,
     CoreModule,
-    DashboardModule,    
+    DashboardModule
   ],
   bootstrap: [AppComponent]
 })

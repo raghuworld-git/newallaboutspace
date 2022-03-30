@@ -1,15 +1,15 @@
-import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { LaunchService } from 'src/app/core/services/launch/launch-service.service';
 import { LaunchInfoModel } from 'src/app/shared/models/launch/launchInfo.model';
-import { LaunchService } from '../../../../../core/services/launch/launch-service.service';
 
 @Component({
-  selector: 'app-upcoming',
-  templateUrl: './upcoming.component.html',
-  styleUrls: ['./upcoming.component.css']
+  selector: 'app-past',
+  templateUrl: './past.component.html',
+  styleUrls: ['./past.component.css']
 })
-export class UpcomingComponent implements OnInit, OnDestroy {
+export class PastComponent implements OnInit {
 
   constructor(
     private router: ActivatedRoute,
@@ -29,12 +29,8 @@ export class UpcomingComponent implements OnInit, OnDestroy {
     this.launchServiceSubscription?.unsubscribe();
   }
 
-  onFilterChange(selectEvent: any): void {
-    this.getlaunchesByType(selectEvent.target.value);
-  }
-
-  private getlaunchesByType(filterType: string = "") {    
-    this.launchServiceSubscription = this.launchService.getUpcomingLaunches(filterType)
+  private getlaunchesByType(filterType: string = "") {           
+    this.launchServiceSubscription = this.launchService.getPreviousLaunches(filterType)
       .subscribe(data => {
         this.launchList = data;
       });

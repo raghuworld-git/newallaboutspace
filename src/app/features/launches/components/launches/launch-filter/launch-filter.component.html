@@ -1,0 +1,28 @@
+<div class="row my-1">
+  <div class="col">
+    Filter by :
+    <select
+      class="custom-select"
+      title="Select filter"
+      (change)="onFilterChange($event)"
+    >
+      <option value="" selected>All</option>
+      <option value="status">Status</option>
+      <option value="is_crewed">Manned</option>
+    </select>
+    &nbsp;
+    <ng-container *ngIf="statusFilter">
+      <select class="custom-select" title="Select Status">
+        <option
+          *ngFor="let item of launchUtilService.getlaunchStatusList() | async"
+          [value]="item.id"
+          selected
+        >
+          {{ item.abbrev }}
+        </option>
+      </select>
+      &nbsp;
+      <button type="button" class="btn btn-sm btn-dark">Go</button>
+    </ng-container>
+  </div>
+</div>

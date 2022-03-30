@@ -20,6 +20,9 @@ export class DescriptionCardComponent {
   }
 
   get description():string{
+    // if(this._description.length<150){
+    //     return this._description+" ".repeat(150-this._description.length)
+    // }
     return this._description;
   }
 

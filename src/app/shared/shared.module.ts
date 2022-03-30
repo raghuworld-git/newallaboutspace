@@ -6,6 +6,7 @@ import { SingleAstronautComponent } from './components/single-astronaut/single-a
 import { DescriptionCardComponent } from './components/description-card/description-card.component';
 
 
+
 @NgModule({
     
 
@@ -14,12 +15,15 @@ import { DescriptionCardComponent } from './components/description-card/descript
     SingleAstronautComponent,
     DescriptionCardComponent
   ],
-  imports:[RouterModule,CommonModule],
+  imports:[
+    RouterModule,
+    CommonModule,    
+  ],
   exports:[
       SingleLaunchCardComponent,
       SingleAstronautComponent,
       DescriptionCardComponent,
-      CommonModule
+      CommonModule      
   ]
 })
 export class SharedModule {
