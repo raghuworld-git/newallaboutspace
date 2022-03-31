@@ -20,5 +20,7 @@ export interface ILaunchDetailModel {
          customCrewMembers : IAstronautModel[],
          pad:ILaunchPadModel,   
          vidURLs:IVidURL[],
-         vidURLCustom : string | null
+         vidURLCustom : string | null,
+         failreason:string | null,
+         holdreason:string | null
 }
