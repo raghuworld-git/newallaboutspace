@@ -16,6 +16,6 @@ export class AppComponent implements OnInit {
   ngOnInit(){
       this.loader.loading$.subscribe((value)=>{
         Promise.resolve(null).then(()=> this.isLoading=value);
-      })
+      })     
   }
 }

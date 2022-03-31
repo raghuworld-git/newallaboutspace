@@ -23,26 +23,33 @@ export class LaunchService  {
    private previousAction:string=`${this.launchAction}/previous`;
 
 
-   getUpcomingLaunches(filterType:string):Observable<LaunchInfoModel[]>{      
+   getUpcomingLaunches(filterType:IQueryParams | null):Observable<LaunchInfoModel[]>{      
     let params:IQueryParams[]=[];
     params.push({ name: 'mode', value: 'detailed' });
     params.push({ name: 'hide_recent_previous', value: 'true' }); 
 
-    if(filterType==='is_crewed'){
+    
+    if(filterType?.name==='is_crewed'){
       params.push({ name: 'is_crewed', value: 'true' });
+    }
+    else if(filterType?.name==='status'){
+      params.push({ name: 'status', value: filterType.value });
     }
      return this.requestService.get<ILaunchesResult>(this.upcomingAction,params).pipe(map((mapdata)=>{
        return this.populateLaunchListCustomProperties(mapdata.results);
      }));
    }
 
-   getPreviousLaunches(filterType:string):Observable<LaunchInfoModel[]>{  
+   getPreviousLaunches(filterType:IQueryParams | null):Observable<LaunchInfoModel[]>{  
     let params:IQueryParams[]=[];
     params.push({ name: 'mode', value: 'detailed' });
     params.push({ name: 'hide_recent_previous', value: 'true' });
         
-    if(filterType==='is_crewed'){
+    if(filterType?.name==='is_crewed'){
       params.push({ name: 'is_crewed', value: 'true' });
+    }
+    else if(filterType?.name==='status'){
+      params.push({ name: 'status', value: filterType.value });
     }
 
     return this.requestService.get<ILaunchesResult>(this.previousAction,params).pipe(map((mapdata)=>{

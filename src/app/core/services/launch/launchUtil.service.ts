@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
 
 @Injectable({
   providedIn: 'root'  
@@ -64,6 +63,6 @@ export class LaunchUtilService {
       {id: 8, abbrev: 'TBC'}
     ];
 
-      return  of(statusList);
+      return  statusList;
   }
 }

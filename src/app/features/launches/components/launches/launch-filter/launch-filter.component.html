@@ -10,19 +10,16 @@
       <option value="status">Status</option>
       <option value="is_crewed">Manned</option>
     </select>
-    &nbsp;
-    <ng-container *ngIf="statusFilter">
-      <select class="custom-select" title="Select Status">
+    &nbsp;    
+      <select class="custom-select" #statusFilterRef (change)="onFilterStatusChange()" title="Select Status" [hidden]="statusFilter">
         <option
-          *ngFor="let item of launchUtilService.getlaunchStatusList() | async"
-          [value]="item.id"
-          selected
+    this.listofStatus= this.launchUtilService.getlaunchStatusList();
+          *ngFor="let item of listofStatus"
+          [value]="item.id"          
         >
           {{ item.abbrev }}
         </option>
-      </select>
-      &nbsp;
-      <button type="button" class="btn btn-sm btn-dark">Go</button>
-    </ng-container>
+       
+      </select>          
   </div>
 </div>

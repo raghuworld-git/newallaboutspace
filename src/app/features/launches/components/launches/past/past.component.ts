@@ -29,7 +29,12 @@ export class PastComponent implements OnInit {
     this.launchServiceSubscription?.unsubscribe();
   }
 
-  private getlaunchesByType(filterType: string = "") {           
+  
+  onSearch(searchEventData:{name:string,value:string}){
+    this.getlaunchesByType(searchEventData);
+  }
+
+  private getlaunchesByType(filterType: {name:string,value:string}|null = null) {           
     this.launchServiceSubscription = this.launchService.getPreviousLaunches(filterType)
       .subscribe(data => {
         this.launchList = data;

@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,    
     HttpClientModule,
     RouterModule,
+    FormsModule,
        
 
     // Common Modules - Custom
