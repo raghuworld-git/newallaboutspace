@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root'  
+  providedIn: 'root'
 })
 export class LaunchUtilService {
   private launchStatusList: { abbrev: string }[] =
@@ -49,20 +49,26 @@ export class LaunchUtilService {
     }
   }
 
-  getlaunchStatusList() {
-    let statusList: { id: number, abbrev: string }[] = [
-      {
+  getlaunchStatusList(isUpcoming: boolean) {
+    let statusList: { id: number, abbrev: string }[] = [];
+    if (isUpcoming) {
+      statusList.push({
         id: 1, abbrev: 'Go'
       },
-      {id: 2, abbrev: 'TBD'},
-      {id: 3, abbrev: 'Success'},
-      {id: 4, abbrev: 'Failure'},
-      {id: 5, abbrev: 'Hold'},
-      {id: 6, abbrev: 'In Flight'},
-      {id: 7, abbrev: 'Partial Failure'},
-      {id: 8, abbrev: 'TBC'}
-    ];
+        { id: 2, abbrev: 'TBD' },
+        { id: 5, abbrev: 'Hold' },
+        { id: 6, abbrev: 'In Flight' },
+        { id: 8, abbrev: 'TBC' }
+      )
+    } else {
+      statusList.push(
+        { id: 3, abbrev: 'Success' },
+        { id: 4, abbrev: 'Failure' },
+        { id: 5, abbrev: 'Hold' },
+        { id: 7, abbrev: 'Partial Failure' }
+      );
+    }
 
-      return  statusList;
+    return statusList;
   }
 }

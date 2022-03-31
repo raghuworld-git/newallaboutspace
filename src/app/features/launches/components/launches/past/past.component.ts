@@ -1,5 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { LaunchService } from 'src/app/core/services/launch/launch-service.service';
 import { LaunchInfoModel } from 'src/app/shared/models/launch/launchInfo.model';
@@ -11,10 +10,8 @@ import { LaunchInfoModel } from 'src/app/shared/models/launch/launchInfo.model';
 })
 export class PastComponent implements OnInit {
 
-  constructor(
-    private router: ActivatedRoute,
-    private launchService: LaunchService,
-    private renderer: Renderer2
+  constructor(    
+    private launchService: LaunchService
   ) { }
 
   launchList: LaunchInfoModel[] = [];
@@ -30,7 +27,7 @@ export class PastComponent implements OnInit {
   }
 
   
-  onSearch(searchEventData:{name:string,value:string}){
+  onSearch(searchEventData:{name:string,value:string} | null){
     this.getlaunchesByType(searchEventData);
   }
 
@@ -39,7 +36,6 @@ export class PastComponent implements OnInit {
       .subscribe(data => {
         this.launchList = data;
       });
-
   }
 
 }

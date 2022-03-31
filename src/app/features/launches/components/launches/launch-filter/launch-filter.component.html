@@ -12,6 +12,7 @@
     </select>
     &nbsp;    
       <select class="custom-select" #statusFilterRef (change)="onFilterStatusChange()" title="Select Status" [hidden]="statusFilter">
+        <option value="">All</option>
         <option
     this.listofStatus= this.launchUtilService.getlaunchStatusList();
           *ngFor="let item of listofStatus"

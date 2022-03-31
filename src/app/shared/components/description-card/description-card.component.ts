@@ -30,5 +30,15 @@ export class DescriptionCardComponent {
     this.toggleText=!this.toggleText;
   }
   
+  // addSpaces(description:string){
+  //   let spaces:string="";
+
+  //   if(description.length<150){
+  //     return "&nbsp;".repeat(150);
+  //   }
+  //   else{
+  //     return spaces;      
+  //   }
+  // }
 
 }

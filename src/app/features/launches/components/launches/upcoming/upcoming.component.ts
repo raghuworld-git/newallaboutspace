@@ -26,7 +26,7 @@ export class UpcomingComponent implements OnInit, OnDestroy {
     this.launchServiceSubscription?.unsubscribe();
   }
 
-  onSearch(searchEventData:{name:string,value:string}){    
+  onSearch(searchEventData:{name:string,value:string} | null){    
     this.getlaunchesByType(searchEventData);
   }
 
