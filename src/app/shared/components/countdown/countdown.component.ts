@@ -1,6 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
 
+
 @Component({
   selector: 'app-countdown',
   templateUrl: './countdown.component.html',
@@ -46,6 +47,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.dateNow = new Date();
     this.dDay = new Date(this.finalDate);
+    
     this.subscription = interval(1000)
       .subscribe(x => { this.getTimeDifference(); });
   }

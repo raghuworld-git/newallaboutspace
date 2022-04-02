@@ -7,11 +7,13 @@ import { HeaderComponent } from "./components/layout/header/header.component";
 import { SpinnerComponent } from "./components/spinner/spinner.component";
 
 import { LoaderInterceptor } from "./interceptor/loader.interceptor";
+import { TimezoneComponent } from './components/timezone/timezone.component';
 
 @NgModule({  
     declarations:[
         HeaderComponent,
-        SpinnerComponent
+        SpinnerComponent,
+        TimezoneComponent
     ]   ,
     providers: [{
         provide:HTTP_INTERCEPTORS,
@@ -24,7 +26,8 @@ import { LoaderInterceptor } from "./interceptor/loader.interceptor";
       ],
       exports:[
           HeaderComponent,
-          SpinnerComponent
+          SpinnerComponent,
+          TimezoneComponent
       ]
 })
 export class CoreModule {
