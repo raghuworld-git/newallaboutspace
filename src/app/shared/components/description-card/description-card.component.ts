@@ -10,7 +10,7 @@ export class DescriptionCardComponent {
   private _description!:string;
   toggleText:boolean=false;
 
-  @Input() set description(desc:string|null){
+  @Input() set description(desc:string|null|undefined){
     if(desc===null || desc === undefined || desc.trim()==""){
       this._description="No data available";
     }

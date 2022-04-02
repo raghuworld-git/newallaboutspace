@@ -3,6 +3,6 @@
 }
 .card-body> a{
     color: white!important;
-    cursor: pointer;   
+    cursor: pointer !important;   
     text-decoration: underline; 
 } 

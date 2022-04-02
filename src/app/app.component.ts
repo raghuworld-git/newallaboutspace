@@ -7,7 +7,6 @@ import { LoaderService } from './core/services/http/loader.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'All About Space';
 
   isLoading=false;
   

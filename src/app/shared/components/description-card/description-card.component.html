@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="card-body text-center">
+  <div class="card-body text-center ">
     {{ toggleText == false ? (description | slice: 0:150) : description }}
     <a (click)="toggleClick()" *ngIf="description.length > 150">
       {{ toggleText == false ? " Show more" : "Show less" }}
