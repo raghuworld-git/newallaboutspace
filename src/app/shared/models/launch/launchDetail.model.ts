@@ -11,7 +11,7 @@ export interface ILaunchDetailModel {
          name:string,
          image:string,
          status : ILaunchStatusModel,
-         statusColor:string,
+         statusColor:string,         
          updates: ILaunchUpdatesModel[],
          net:string,
          launch_service_provider:ILaunchServiceProviderModel,        
@@ -22,5 +22,6 @@ export interface ILaunchDetailModel {
          vidURLs:IVidURL[],
          vidURLCustom : string | null,
          failreason:string | null,
-         holdreason:string | null
+         holdreason:string | null,
+         isLaunchCompleted:boolean
 }

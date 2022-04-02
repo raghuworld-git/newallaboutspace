@@ -4,6 +4,7 @@ import { RouterModule } from "@angular/router";
 import { SingleLaunchCardComponent } from './components/single-launch-card/single-launch-card.component';
 import { SingleAstronautComponent } from './components/single-astronaut/single-astronaut.component';
 import { DescriptionCardComponent } from './components/description-card/description-card.component';
+import { CountdownComponent } from './components/countdown/countdown.component';
 
 
 
@@ -13,7 +14,8 @@ import { DescriptionCardComponent } from './components/description-card/descript
   declarations: [
     SingleLaunchCardComponent,
     SingleAstronautComponent,
-    DescriptionCardComponent
+    DescriptionCardComponent,
+    CountdownComponent
   ],
   imports:[
     RouterModule,
@@ -23,6 +25,7 @@ import { DescriptionCardComponent } from './components/description-card/descript
       SingleLaunchCardComponent,
       SingleAstronautComponent,
       DescriptionCardComponent,
+      CountdownComponent,
       CommonModule      
   ]
 })

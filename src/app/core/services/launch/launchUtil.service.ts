@@ -49,6 +49,16 @@ export class LaunchUtilService {
     }
   }
 
+  isLaunchCompleted(id: number): boolean {
+    return [5, 3, 4, 7].includes(id);
+    /**
+     * 5 - Hold 
+     * 3 - Success
+     * 4 - Failure
+     * 7 - Partial Failure
+     */
+  }
+
   getlaunchStatusList(isUpcoming: boolean) {
     let statusList: { id: number, abbrev: string }[] = [];
     if (isUpcoming) {
